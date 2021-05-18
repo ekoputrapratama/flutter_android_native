@@ -1,0 +1,57 @@
+
+
+import android.accessibilityservice.AccessibilityService
+import android.accessibilityservice.AccessibilityServiceInfo
+
+class NativeAccessibilityService : AccessibilityService() {
+  companion object {
+    const val TAG = "NativeAccessibilityService"
+    var isRunning = false
+    var listener: ServiceListener? = null
+    var backgroundHandler: BackgroundHandler? = null
+    var instance: VarityAccessibilityService? = null
+
+    @JvmStatic
+    fun init(handler: BackgroundHandler) {
+      Ln.d(TAG, "initializing")
+      if (isRunning) {
+        Ln.e(TAG, "VarityAccessibilityService already running")
+      }
+      
+      backgroundHandler = handler
+    }
+  }
+
+  override fun onAccessibilityEvent(event: AccessibilityEvent?) {
+    Ln.d(TAG, "onAccessibilityEvent")
+    backgroundHandler?.onAccessibilityEvent(event)
+  }
+  override fun onInterrupt() {
+    Ln.d(TAG, "onInterrupt")
+    // backgroundHandler?.onInterrupt()
+  }
+
+  override fun onServiceConnected() {
+    Ln.d(TAG, "onServiceConnected")
+    super.onServiceConnected()
+    isRunning = true
+    // instance = this
+    // backgroundHandler?.initEngine()
+    // backgroundHandler?.onServiceConnected()
+  }
+  override fun onDestroy() {
+    Ln.d(TAG, "onDestroy")
+    super.onDestroy()
+    // backgroundHandler?.onDestroy()
+    // instance = null
+    isRunning = false
+
+  }
+
+  interface ServiceListener {
+    fun onAccessibilityEvent(event: AccessibilityEvent?)
+    fun onInterrupt()
+    fun onServiceConnected()
+    fun onDestroy()
+  }
+}
