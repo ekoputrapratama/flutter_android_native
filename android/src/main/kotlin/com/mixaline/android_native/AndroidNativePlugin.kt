@@ -50,9 +50,9 @@ class AndroidNativePlugin : FlutterPlugin, ActivityAware {
       plugin.startListening(registrar.context(), registrar.messenger())
 
       if (registrar.activeContext() is Activity) {
-
+        val activity = registrar.activity() ?: return
         plugin.startListeningToActivity(
-          registrar.activity(),
+          activity,
           registrar::addActivityResultListener,
           registrar::addRequestPermissionsResultListener,
           registrar::addNewIntentListener
