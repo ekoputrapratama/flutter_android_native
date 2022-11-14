@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
+// ignore_for_file: non_constant_identifier_names
 const String ANDROID_NATIVE_CHANNEL = "android_native_channel";
 const String ANDROID_NATIVE_CHANNEL_NAME =
     "com.mixaline.android_native/messages";
@@ -24,7 +24,7 @@ class AndroidNativeObject {
   static MethodChannel _channel =
       Get.put(MethodChannel(ANDROID_NATIVE_CHANNEL_NAME));
   MethodChannel get channel => _channel;
-  // ignore: non_constant_identifier_names
+  
   static var ANDROID_SDK_INT;
   static var ANDROID_SDK;
   static var ANDROID_PREVIEW_SDK_INT;
@@ -34,6 +34,7 @@ class AndroidNativeObject {
   static var ANDROID_RELEASE;
   static var ANDROID_RELEASE_OR_CODENAME;
   static var ANDROID_SECURITY_PATCH;
+  static var SERIAL;
 
   // BaseClass() {
   //   // if (channel == null) {
@@ -47,9 +48,9 @@ class AndroidNativeObject {
   // }
 
   init() {
-    if (!channel.checkMethodCallHandler(onMethodCall)) {
+    //if (!channel.checkMethodCallHandler(onMethodCall)) {
       channel.setMethodCallHandler(onMethodCall);
-    }
+    //}
   }
 
   Future onMethodCall(MethodCall call) async {

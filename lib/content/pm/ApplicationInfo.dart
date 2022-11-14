@@ -47,7 +47,7 @@ class ApplicationInfo extends PackageItemInfo {
   static const int FLAG_VM_SAFE_MODE = 16384;
 
   int category = CATEGORY_UNDEFINED;
-  String className = '';
+  String? className = '';
   String dataDir = '';
   int descriptionRes = 0;
   bool enabled = false;

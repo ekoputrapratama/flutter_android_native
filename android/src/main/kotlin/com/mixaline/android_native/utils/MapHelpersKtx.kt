@@ -269,15 +269,11 @@ fun Intent.toMap(): Map<Any, Any?> {
 
   val bundle = extras
   if(bundle != null){
-    val mapBundle = mutableMapOf<Any, Any?>()
-    for (key in bundle.keySet()) {
-      mapBundle[key] = bundle.get(key)
-    }
-    map["extras"] = mapBundle
+    // let's just retrieve known type that is supported to be passed through MethodChannel
+    map["extras"] = parseBundleToMap(bundle)
   }
   return map
 }
-
 
 fun mapToComponent(map: Map<*, *>?): ComponentName? {
   return if (map != null) {
@@ -285,6 +281,20 @@ fun mapToComponent(map: Map<*, *>?): ComponentName? {
   } else {
     null
   }
+}
+
+internal fun parseBundleToMap(bundle: Bundle): Map<Any, Any?> {
+  val mapBundle = mutableMapOf<Any, Any?>()
+  for (key in bundle.keySet()) {
+    val value = bundle.get(key)
+    when(value) {
+      is String, is Double, is Float, is Long, is Int, is List<*>, is Map<*, *> -> {
+        mapBundle[key] = value
+      }
+    }
+  }
+
+  return mapBundle
 }
 
 internal fun parseMapToBundle(map: Map<*, *>): Bundle? {

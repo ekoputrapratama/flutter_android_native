@@ -37,7 +37,7 @@ class Context extends AndroidNativeObject with ContextMixin {
 mixin ContextMixin on AndroidNativeObject {
   final _contentResolver = ContentResolver();
   final _packageManager = PackageManager();
-  bool _useDeviceProtectedStorage = false;
+  bool _useDeviceProtectedStorage = true;
   void startActivity(Intent intent) {
     channel.invokeMethod(_START_ACTIVITY, intent.toMap());
   }

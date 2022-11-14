@@ -6,7 +6,7 @@ class PackageInfo {
   bool isApex = false;
   int firstInstallTime = 0;
   int baseRevisionCode = 0;
-  String sharedUserId = "";
+  String? sharedUserId = "";
   int versionCode = 0;
   String versionName = "";
 
@@ -16,7 +16,7 @@ class PackageInfo {
       var instance = PackageInfo._();
 
       instance.packageName = map['packageName'];
-      instance.isApex = map['isApex'];
+      instance.isApex = map['isApex'] ?? false;
       instance.applicationInfo =
           ApplicationInfo.fromMap(map['applicationInfo']);
       instance.firstInstallTime = map['firstInstallTime'];

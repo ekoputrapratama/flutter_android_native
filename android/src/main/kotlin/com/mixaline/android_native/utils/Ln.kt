@@ -10,8 +10,8 @@ import java.io.StringWriter
  */
 object Ln {
 
-  private val TAG = "com.stella.apps.toolbox"
-  private val PREFIX = "[stella-toolbox] "
+  private val TAG = "com.mixaline.android_native"
+  private val PREFIX = "[android_native] "
 
   private var threshold = Level.DEBUG
 

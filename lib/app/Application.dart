@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../android_native.dart';
 
 mixin ApplicationMixin on AndroidNativeObject {
-  Context _context = Context();
+  final Context _context = Context();
   Context getApplicationContext() {
     return _context;
   }
@@ -224,6 +224,7 @@ class Application extends StatelessWidget
     AndroidNativeObject.ANDROID_RELEASE_OR_CODENAME =
         map["RELEASE_OR_CODENAME"];
     AndroidNativeObject.ANDROID_SECURITY_PATCH = map["SECURITY_PATCH"];
+    AndroidNativeObject.SERIAL = map["SERIAL"];
   }
 
   // Widget getView();

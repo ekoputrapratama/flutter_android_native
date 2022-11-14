@@ -13,8 +13,8 @@ class ActivityInfo extends ComponentInfo {
   late int persistableMode;
   late int screenOrientation;
   late int softInputMode;
-  late String targetActivity;
-  late String taskAffinity;
+  late String? targetActivity;
+  late String? taskAffinity;
   late int theme;
   late int uiOptions;
   late WindowLayout? windowLayout;
