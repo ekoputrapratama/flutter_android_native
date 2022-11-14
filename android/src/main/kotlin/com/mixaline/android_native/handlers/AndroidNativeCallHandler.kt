@@ -91,6 +91,7 @@ class AndroidNativeCallHandler(
           val map = mutableMapOf<Any, Any?>()
           map["SDK_INT"] = Build.VERSION.SDK_INT
           map["SDK"] = Build.VERSION.SDK
+          map["SERIAL"] = Build.SERIAL
           if(isAtLeastM()) {
             map["PREVIEW_SDK_INT"] = Build.VERSION.PREVIEW_SDK_INT
             map["BASE_OS"] = Build.VERSION.BASE_OS
@@ -168,7 +169,7 @@ class AndroidNativeCallHandler(
     return true
   }
 
-  override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>?, grantResults: IntArray?): Boolean {
+  override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray): Boolean {
     Ln.d( "onRequestPermissionsResult : requestCode=$requestCode, permissions=$permissions")
     val results: HashMap<Any, Any?> = HashMap()
     results["requestCode"] = requestCode
@@ -177,4 +178,5 @@ class AndroidNativeCallHandler(
     messageChannel.invokeMethod(METHOD_ON_REQUEST_PERMISSIONS_RESULT, results)
     return true
   }
+
 }
