@@ -1,6 +1,6 @@
 name: android_native
 description: A new flutter plugin project.
-version: 0.0.1
+version: 0.0.2
 author: null
 homepage: null
 
@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.1.4
-  html_unescape: ^1.0.2
+  html_unescape: ^2.0.0
 
 dev_dependencies:
   flutter_test:

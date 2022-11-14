@@ -9,7 +9,7 @@ class ComponentInfo extends PackageItemInfo {
   late bool enabled;
   late bool exported;
   late String processName;
-  late String splitName;
+  late String? splitName;
 
   ComponentInfo();
   ComponentInfo.fromComponentInfo(ComponentInfo info)
