@@ -13,12 +13,6 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-## NOTE
-
-if there is any error in SharedPreference kill the man who distrubing at night
-- this man show up at 25 march, 6 april around 1:00am-2:30am
-
-
 ## Common Issue
 
 - on some device or probably some custom rom, i can't enable accessibilty service for 3rd party app cuz it doesn't show up in accessibility service setting.
