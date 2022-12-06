@@ -1,8 +1,7 @@
 name: android_native
-description: A new flutter plugin project.
+description: Android native api in flutter
 version: 0.0.3
-author: null
-homepage: null
+homepage: https://github.com/ekoputrapratama/flutter_android_native
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
